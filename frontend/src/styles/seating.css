@@ -1,0 +1,231 @@
+/* Cinema Seating Layout Styles */
+.seating-container {
+  background: #0a0f1d;
+  border: 1px solid #1e293b;
+  border-radius: 16px;
+  padding: 30px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Curved Screen Projection */
+.screen-area {
+  margin-bottom: 40px;
+  text-align: center;
+  position: relative;
+}
+
+.cinema-screen-curve {
+  height: 12px;
+  width: 75%;
+  margin: 0 auto 12px auto;
+  border-top: 4px solid #38bdf8;
+  border-radius: 50% / 100% 100% 0 0;
+  box-shadow: 0 -8px 20px rgba(56, 189, 248, 0.4);
+  background: linear-gradient(180deg, rgba(56, 189, 248, 0.15) 0%, transparent 100%);
+}
+
+.screen-text {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* Seating Tiers Section */
+.seat-tier-section {
+  margin-bottom: 30px;
+}
+
+.tier-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1e293b;
+  padding-bottom: 6px;
+  margin-bottom: 16px;
+}
+
+.tier-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #cbd5e1;
+}
+
+.tier-price {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fbbf24;
+}
+
+/* Rows & Grid */
+.seat-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.row-label {
+  width: 24px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #64748b;
+  text-align: center;
+}
+
+.seats-group {
+  display: flex;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+
+/* Individual Seat */
+.seat-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px 6px 4px 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  user-select: none;
+  padding: 0;
+}
+
+/* 1. Available Seat */
+.seat-btn.available {
+  background-color: #1e293b;
+  color: #cbd5e1;
+  border-color: #334155;
+}
+
+.seat-btn.available:hover {
+  background-color: #334155;
+  border-color: #38bdf8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 2. Selected Seat (Crimson Red Glow) */
+.seat-btn.selected {
+  background: linear-gradient(135deg, #e50914 0%, #b81d24 100%);
+  color: #ffffff;
+  border-color: #ff4d5a;
+  transform: scale(1.08);
+  box-shadow: 0 0 10px rgba(229, 9, 20, 0.75);
+}
+
+/* 3. Booked Seat (Disabled Muted) */
+.seat-btn.booked {
+  background-color: #0b0f19;
+  color: #475569;
+  border-color: #1e2538;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* 4. Temporarily Locked Seat */
+.seat-btn.locked {
+  background-color: #854d0e;
+  color: #fef08a;
+  border-color: #ca8a04;
+  cursor: not-allowed;
+  animation: pulse-locked 1.5s infinite;
+}
+
+@keyframes pulse-locked {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+/* Aisle gap between seats if needed */
+.seat-aisle {
+  width: 14px;
+}
+
+/* Legend */
+.seat-legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 16px;
+  background: #0d1527;
+  border-radius: 10px;
+  margin-top: 30px;
+  border: 1px solid #1e293b;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.legend-swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+}
+
+.legend-swatch.available {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+}
+
+.legend-swatch.selected {
+  background: #e50914;
+  box-shadow: 0 0 8px rgba(229, 9, 20, 0.6);
+}
+
+.legend-swatch.booked {
+  background-color: #0b0f19;
+  border: 1px solid #1e2538;
+}
+
+.legend-swatch.locked {
+  background-color: #854d0e;
+  border: 1px solid #ca8a04;
+}
+
+/* Booking Floating Summary Bar */
+.booking-summary-bar {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 15, 29, 0.95);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 14px 24px;
+  z-index: 900;
+  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 576px) {
+  .seat-btn {
+    width: 25px;
+    height: 25px;
+    font-size: 0.65rem;
+  }
+  .seats-group {
+    gap: 4px;
+  }
+  .seat-row {
+    gap: 4px;
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "imovies",
+  "version": "1.0.0",
+  "description": "iMovies – Movie Ticket Booking Made Simple",
+  "scripts": {
+    "start": "node backend/server.js",
+    "seed": "node backend/seed/seeder.js",
+    "test": "node backend/test_suite.js",
+    "build": "cd frontend && npm run build"
+  }
+}

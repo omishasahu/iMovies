@@ -1,0 +1,390 @@
+:root {
+  --cinema-black: #06090f;
+  --cinema-navy-dark: #0a0f1d;
+  --cinema-navy: #10182b;
+  --cinema-card-bg: #141f36;
+  --cinema-card-border: #1e2d4d;
+  --cinema-red: #e50914;
+  --cinema-red-hover: #f40612;
+  --cinema-red-glow: rgba(229, 9, 20, 0.35);
+  --cinema-gold: #f59e0b;
+  --cinema-text-light: #f8fafc;
+  --cinema-text-muted: #94a3b8;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--cinema-black);
+  color: var(--cinema-text-light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cinema-black);
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cinema-red);
+}
+
+/* Brand Logo */
+.brand-logo {
+  font-family: 'Cinzel', serif;
+  font-weight: 800;
+  font-size: 1.6rem;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff !important;
+}
+
+.brand-badge {
+  background: linear-gradient(135deg, #e50914 0%, #b81d24 100%);
+  color: #fff;
+  padding: 2px 9px;
+  border-radius: 6px;
+  font-weight: 900;
+  box-shadow: 0 0 12px var(--cinema-red-glow);
+}
+
+/* Navbar */
+.cinema-navbar {
+  background: rgba(10, 15, 29, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.nav-link {
+  color: #cbd5e1 !important;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  padding: 8px 14px !important;
+  border-radius: 6px;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-link.active {
+  color: #ff4d5a !important;
+  font-weight: 600;
+}
+
+/* Buttons */
+.btn-cinema-primary {
+  background: linear-gradient(135deg, #e50914 0%, #b81d24 100%);
+  color: #ffffff;
+  border: none;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px var(--cinema-red-glow);
+  transition: all 0.25s ease;
+}
+
+.btn-cinema-primary:hover {
+  background: linear-gradient(135deg, #f40612 0%, #d81f26 100%);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(229, 9, 20, 0.55);
+}
+
+.btn-cinema-outline {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+  padding: 9px 20px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-cinema-outline:hover {
+  border-color: var(--cinema-red);
+  color: #ffffff;
+  background: rgba(229, 9, 20, 0.12);
+}
+
+/* Movie Card */
+.movie-card {
+  background: var(--cinema-navy-dark);
+  border: 1px solid var(--cinema-card-border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.movie-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(229, 9, 20, 0.5);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6), 0 0 15px var(--cinema-red-glow);
+}
+
+.movie-poster-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 140%; /* 2:3 aspect ratio */
+  overflow: hidden;
+  background: #0f172a;
+}
+
+.movie-poster-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.movie-card:hover .movie-poster-img {
+  transform: scale(1.05);
+}
+
+.movie-rating-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(10, 15, 29, 0.85);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #fbbf24;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.movie-cert-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(229, 9, 20, 0.9);
+  color: #ffffff;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.watchlist-btn-overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.watchlist-btn-overlay:hover {
+  background: var(--cinema-red);
+  transform: scale(1.1);
+}
+
+.watchlist-btn-overlay.active {
+  background: var(--cinema-red);
+  color: #ffffff;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  background: linear-gradient(180deg, rgba(6, 9, 15, 0.4) 0%, rgba(6, 9, 15, 0.98) 100%),
+              url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  padding: 90px 0 70px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.hero-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: #94a3b8;
+  max-width: 680px;
+}
+
+/* Glass Card */
+.cinema-glass-card {
+  background: rgba(16, 24, 43, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 24px;
+}
+
+/* Form Controls Dark */
+.cinema-input {
+  background-color: #0b1120 !important;
+  border: 1px solid #1e293b !important;
+  color: #f8fafc !important;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+}
+
+.cinema-input:focus {
+  border-color: var(--cinema-red) !important;
+  box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.25) !important;
+  outline: none;
+}
+
+.cinema-input::placeholder {
+  color: #64748b;
+}
+
+/* Ticket Styling */
+.ticket-wrapper {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.ticket-header {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-bottom: 2px dashed #334155;
+  padding: 20px;
+  position: relative;
+}
+
+.ticket-notch-left, .ticket-notch-right {
+  position: absolute;
+  bottom: -15px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--cinema-black);
+  border-radius: 50%;
+  border: 1px solid #1e293b;
+}
+
+.ticket-notch-left {
+  left: -15px;
+}
+
+.ticket-notch-right {
+  right: -15px;
+}
+
+.ticket-body {
+  padding: 24px;
+}
+
+/* Admin Sidebar & Tables */
+.admin-sidebar {
+  background: #0a0f1d;
+  border-right: 1px solid #1e293b;
+  min-height: calc(100vh - 70px);
+}
+
+.admin-nav-item {
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.admin-nav-item:hover, .admin-nav-item.active {
+  color: #ffffff;
+  background: #1e293b;
+}
+
+.admin-nav-item.active {
+  color: #ff4d5a;
+  background: rgba(229, 9, 20, 0.12);
+  border-left: 3px solid var(--cinema-red);
+}
+
+.cinema-table {
+  color: #f1f5f9 !important;
+  background-color: transparent !important;
+}
+
+.cinema-table th {
+  background-color: #0d1527 !important;
+  color: #94a3b8 !important;
+  border-bottom: 1px solid #1e293b !important;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 12px 16px;
+}
+
+.cinema-table td {
+  background-color: #0a0f1d !important;
+  border-bottom: 1px solid #1e293b !important;
+  padding: 12px 16px;
+  vertical-align: middle;
+}
+
+/* Modal dark */
+.modal-content.cinema-modal {
+  background-color: #0d1527;
+  color: #f8fafc;
+  border: 1px solid #1e2d4d;
+  border-radius: 14px;
+}
+
+.cinema-modal .modal-header {
+  border-bottom: 1px solid #1e293b;
+}
+
+.cinema-modal .modal-footer {
+  border-top: 1px solid #1e293b;
+}

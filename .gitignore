@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+*/node_modules/
+frontend/node_modules/
+backend/node_modules/
+
+# Environment files
+.env
+*.env
+backend/.env
+frontend/.env
+
+# Build outputs
+dist/
+frontend/dist/
+
+# Tools & Caches
+tools/
+tools/*
+mongo-cache/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
